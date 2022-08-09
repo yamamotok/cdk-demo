@@ -1,0 +1,40 @@
+{
+  "name": "cdk-demo",
+  "version": "1.0.0",
+  "description": "AWS CDK demonstration",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf build && tsc -p tsconfig.build.json && node post-build.js",
+    "start": "node build/index.js",
+    "clean": "rimraf build && rimraf cdk.out",
+    "local-start": "ts-node src/local.ts",
+    "local-start:watch": "nodemon --config local.nodemon.json --exec ts-node src/local.ts",
+    "cdk-deploy": "npm run build && cdk deploy --all",
+    "cdk-destroy": "cdk destroy --all",
+    "cdk-diff": "cdk diff"
+  },
+  "author": "yamamotok",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.101",
+    "@types/node": "^18.6.5",
+    "@types/shelljs": "^0.8.11",
+    "aws-cdk": "^2.36.0",
+    "aws-cdk-lib": "^2.36.0",
+    "constructs": "^10.1.71",
+    "nodemon": "^2.0.19",
+    "pino-pretty": "^8.1.0",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "shelljs": "^0.8.5",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@fastify/aws-lambda": "^3.1.1",
+    "dotenv": "^16.0.1",
+    "fastify": "^4.4.0",
+    "fastify-plugin": "^4.1.0",
+    "source-map-support": "^0.5.21"
+  }
+}
